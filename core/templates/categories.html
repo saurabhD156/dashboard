@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+
+	<!-- ======================= Main contain START ======================= -->
+	<section class="py-4">
+		<div class="container">
+			<div class="row pb-4">
+				<div class="col-12">
+					<!-- Title -->
+					<div class="d-sm-flex justify-content-sm-between align-items-center">
+						<h1 class="mb-2 mb-sm-0 h2">Categories <span
+								class="badge bg-primary bg-opacity-10 text-primary">{% if category_count < 10 %}0{{ category_count }}{% else %}{{ category_count }}{% endif %}</span></h1>
+						<a href="{% url "add_category" %}" class="btn btn-sm btn-primary mb-0"><i class="fas fa-plus me-2"></i>Add new
+							category</a>
+					</div>
+				</div>
+			</div>
+			<div class="row g-4">
+
+				{% for cat in category %}
+				<div class="col-md-6 col-xl-4">
+					<!-- Category item START -->
+					<div class="card border h-100">
+						<!-- Card header -->
+						<div class="card-header border-bottom p-3">
+							<div class="d-flex align-items-center">
+								<div class="icon-lg shadow bg-body rounded-circle">
+									<img src="{{ cat.images.small_image.url }}" alt="{{ cat.images.alt_tag }}" class="img-fluid" />
+								</div>
+								<h3 class="mb-0 ms-3">{{ cat.Name }}</h3>
+							</div>
+						</div>
+
+						<!-- Card body START -->
+						<div class="card-body p-3">
+							<p>{{ cat.description|truncatechars:100 }}</p>
+
+							<!-- Followers and Post -->
+							<div class="d-flex justify-content-between">
+								<!-- Total post -->
+								<div>
+									<h5 class="mb-0">{{ cat.posts.count }}</h5>
+									<h6 class="mb-0 fw-light">Total posts</h6>
+								</div>
+
+								<!-- Avatar group -->
+								<ul class="avatar-group mb-0">
+									<li class="avatar avatar-xs">
+										<img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/01.jpg' %}"
+											alt="avatar">
+									</li>
+									<li class="avatar avatar-xs">
+										<img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/02.jpg' %}"
+											alt="avatar">
+									</li>
+									<li class="avatar avatar-xs">
+										<img class="avatar-img rounded-circle" src="{% static 'assets/images/avatar/03.jpg' %}"
+											alt="avatar">
+									</li>
+									<li class="avatar avatar-xs">
+										<div class="avatar-img rounded-circle bg-primary"><i
+												class="fas fa-plus text-white position-absolute top-50 start-50 translate-middle"></i>
+										</div>
+									</li>
+								</ul>
+							</div>
+
+						</div>
+						<!-- Card body END -->
+
+						<!-- Card footer -->
+						<div class="card-footer border-top text-center p-3">
+							<a href="#" class="btn btn-primary-soft w-100 mb-0">View posts</a>
+						</div>
+					</div>
+					<!-- Category item END -->
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</section>
+	<!-- =======================
+Main contain END -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+
+{% endblock content %}

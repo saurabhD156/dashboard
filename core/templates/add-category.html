@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<!-- **************** MAIN CONTENT START **************** -->
+<main>
+    
+    <!-- ======================= Main contain START ======================= -->
+    <section class="py-4">
+        <div class="container">
+            <div class="row pb-4">
+                <div class="col-12">
+                    <!-- Title -->
+                    <h1 class="mb-0 h2">Create a category</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <!-- Chart START -->
+                    <div class="card border">
+                        <!-- Card body -->
+                        <div class="card-body">
+                            <!-- Form START -->
+                            <form>
+                                <!-- Main form -->
+                                <div class="row">
+                                    <div class="col-lg-7">
+                                        <!-- category name -->
+                                        <div class="mb-3">
+                                            <label class="form-label"><strong>Category Name</strong></label>
+                                            <input required id="con-name" name="name" type="text" class="form-control"
+                                                placeholder="category name">
+                                        </div>
+                                    </div>
+
+                                    <!-- Description -->
+                                    <div class="col-12">
+                                        <div class="mb-3">
+                                            <label class="form-label"><strong>Description</strong> </label>
+                                            <textarea class="form-control" rows="5"
+                                                placeholder="Add description"></textarea>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <!-- Image -->
+                                        <div class="position-relative">
+                                            <h6 class="my-2">Category image, or<a href="#!"
+                                                    class="text-primary"> Browse</a></h6>
+                                            <label class="w-100" style="cursor:pointer;">
+                                                <span>
+                                                    <input class="form-control stretched-link" type="file"
+                                                        name="my-image" id="image"
+                                                        accept="image/gif, image/jpeg, image/png">
+                                                </span>
+                                            </label>
+                                        </div>
+                                        <p class="small mb-0 mt-2"><b>Note:</b> Only JPG, JPEG and PNG. Our suggested
+                                            dimensions are 600px * 450px. Larger image will be cropped to 4:3 to fit our
+                                            thumbnails/previews.</p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-7">
+                                    <!-- Slug -->
+                                    <div class="mb-3">
+                                        <label class="form-label"><strong>Slug</strong></label>
+                                        <textarea class="form-control" rows="1"
+                                            placeholder="creating-lasting-impact-with-digital-solutions"></textarea>
+                                        <small>Maximum of 14 word Slug. Slug should all be in lowercase and separated by
+                                            hyphen. For Ex. he-is-a-good-boy</small>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5">
+                                    <!-- Message -->
+                                    <div class="mb-3">
+                                        <label class="form-label"><strong>MetaData</strong></label>
+                                        <select class="form-select" aria-label="Default select example">
+                                            <option selected>Lifestyle</option>
+                                            <option value="1">Technology</option>
+                                            <option value="2">Travel</option>
+                                            <option value="3">Business</option>
+                                            <option value="4">Sports</option>
+                                            <option value="5">Marketing</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" type="checkbox" value="" id="categoryCheck">
+                                        <label class="form-check-label" for="categoryCheck">
+                                            Make this category featured?
+                                        </label>
+                                    </div>
+                                </div>
+                                <!-- Create category button -->
+                                <div class="col-md-12 text-start">
+                                    <button class="btn btn-primary w-100" type="submit">Create category</button>
+                                </div>
+                        </div>
+                        </form>
+                        <!-- Form END -->
+                    </div>
+                </div>
+                <!-- Chart END -->
+            </div>
+        </div>
+        </div>
+    </section>
+    <!-- ======================= Main contain END ======================= -->
+
+</main>
+<!-- **************** MAIN CONTENT END **************** -->
+{% endblock content %}
