@@ -64,6 +64,8 @@ class Post(models.Model):
     tags                = models.ManyToManyField(Tag, related_name='posts', blank=True)
     category            = models.ForeignKey(Category, on_delete=models.CASCADE ,related_name='posts', blank=True)
     metadata            = models.OneToOneField(MetaData, on_delete=models.CASCADE)
+    created_at          = models.DateTimeField(auto_now_add=True, blank= True, null=True)
+    updated_at          = models.DateTimeField(auto_now=True, blank=True, null=True)
 
     def __str__(self):
         return self.title
