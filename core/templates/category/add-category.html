@@ -4,7 +4,7 @@
 
 <!-- **************** MAIN CONTENT START **************** -->
 <main>
-    
+
     <!-- ======================= Main contain START ======================= -->
     <section class="py-4">
         <div class="container">
@@ -47,8 +47,8 @@
                                     <div class="mb-3">
                                         <!-- Image -->
                                         <div class="position-relative">
-                                            <h6 class="my-2">Category image, or<a href="#!"
-                                                    class="text-primary"> Browse</a></h6>
+                                            <h6 class="my-2">Category image, or<a href="#!" class="text-primary">
+                                                    Browse</a></h6>
                                             <label class="w-100" style="cursor:pointer;">
                                                 <span>
                                                     <input class="form-control stretched-link" type="file"
@@ -73,17 +73,33 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-5">
-                                    <!-- Message -->
+
+                                    <!-- MetaData -->
                                     <div class="mb-3">
                                         <label class="form-label"><strong>MetaData</strong></label>
-                                        <select class="form-select" aria-label="Default select example">
-                                            <option selected>Lifestyle</option>
-                                            <option value="1">Technology</option>
-                                            <option value="2">Travel</option>
-                                            <option value="3">Business</option>
-                                            <option value="4">Sports</option>
-                                            <option value="5">Marketing</option>
-                                        </select>
+                                        <input required id="con-name" name="name" type="text" class="form-control"
+                                            placeholder="meta title">
+                                        <label class="form-label"><strong>Description</strong> </label>
+                                        <textarea class="form-control" rows="5"
+                                            placeholder="Meta description"></textarea>
+                                        <!-- Image -->
+                                        <div class="position-relative">
+                                            <h6 class="my-2">Category image, or<a href="#!" class="text-primary">
+                                                    Browse</a></h6>
+                                            <label class="w-100" style="cursor:pointer;">
+                                                <span>
+                                                    <input class="form-control stretched-link" type="file"
+                                                        name="my-image" id="image"
+                                                        accept="image/gif, image/jpeg, image/png">
+                                                </span>
+                                            </label>
+                                        </div>
+                                        <p class="small mb-0 mt-2"><b>Note:</b> Only JPG, JPEG and PNG. Our suggested
+                                            dimensions are 600px * 450px. Larger image will be cropped to 4:3 to fit our
+                                            thumbnails/previews.</p>
+                                        <input required id="con-name" name="name" type="text" class="form-control"
+                                            placeholder="Keywords">
+
                                     </div>
                                 </div>
                                 <div class="col-12">

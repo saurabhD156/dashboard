@@ -18,10 +18,11 @@ urlpatterns = [
     # --- ==========  Author  ========== ------ 
     path('author-list/', views.author_list, name='author_list'),
     path('author-single/', views.author_single, name='author_single'),
+    path('edit-profile/', views.edit_profile, name='edit_profile'),    
 
     # --- ==========  Additional  ========== ------
-    path('edit-profile/', views.edit_profile, name='edit_profile'),    
     path('reviews/', views.reviews, name='reviews'),    
     path('settings/', views.settings, name='settings'),
+    path('images/', views.images, name='images'),
 
 ]

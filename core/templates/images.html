@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<section class="py-4">
+    <div class="container">
+        <div class="row g-4">
+            <div class="d-sm-flex justify-content-sm-between align-items-center">
+                <h1 class="mb-2 mb-sm-0 h2">Images <span class="badge bg-primary bg-opacity-10 text-primary"></span>
+                </h1>
+                <!-- Modal Trigger Button -->
+                <button type="button" class="btn btn-sm btn-primary mb-0" data-bs-toggle="modal"
+                    data-bs-target="#addImageModal">
+                    <i class="fas fa-plus me-2"></i>Add new Images
+                </button>
+            </div>
+
+            {% for image in images %}
+            <!-- Original image start -->
+            <div class="col-md-6 col-xl-4">
+                <!-- Category item START -->
+                <div class="card border h-100">
+                    <!-- Card header -->
+                    <div class="card-header border-bottom p-3">
+                        <div class="d-flex align-items-center">
+                            <img src="{{ image.original_image.url }}" alt="{{ image.alt_tag|default:'Image' }}"
+                                class="img-fluid" />
+                        </div>
+                        <div class="card-body p-3">
+                            <strong class="mb-0 ms-3">{{ image.title }}</strong>
+                            <p>{{ image.description|truncatechars:80 }}</p>
+                        </div>
+                    </div>
+
+                    <!-- Card footer -->
+                    <div class="card-footer border-top text-center p-3">
+                        <div class="d-flex gap-2">
+                            <a href="#" class="btn btn-primary-soft w-100 mb-0">View Images</a>
+                            <a href="#" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip"
+                                data-bs-placement="top" title="Delete"><i class="bi bi-trash"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Category item END -->
+            </div>
+            <!-- Original image end -->
+
+            <!-- Medium image start -->
+            <div class="col-md-6 col-xl-4">
+                <!-- Category item START -->
+                <div class="card border h-100">
+                    <!-- Card header -->
+                    <div class="card-header border-bottom p-3">
+                        <div class="d-flex align-items-center">
+                            <img src="{{ image.medium_image.url }}" alt="{{ image.alt_tag|default:'Image' }}"
+                                class="img-fluid" />
+                        </div>
+                        <div class="card-body p-3">
+                            <strong class="mb-0 ms-3">{{ image.title }}</strong>
+                            <p>{{ image.description|truncatechars:80 }}</p>
+                        </div>
+                    </div>
+
+                    <!-- Card footer -->
+                    <div class="card-footer border-top text-center p-3">
+                        <div class="d-flex gap-2">
+                            <a href="#" class="btn btn-primary-soft w-100 mb-0">View Images</a>
+                            <a href="#" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip"
+                                data-bs-placement="top" title="Delete"><i class="bi bi-trash"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Category item END -->
+            </div>
+            <!-- Medium image end -->
+
+            <!-- Small image start -->
+            <div class="col-md-6 col-xl-4">
+                <!-- Category item START -->
+                <div class="card border h-100">
+                    <!-- Card header -->
+                    <div class="card-header border-bottom p-3">
+                        <div class="d-flex align-items-center">
+                            <img src="{{ image.small_image.url }}" alt="{{ image.alt_tag|default:'Image' }}"
+                                class="img-fluid" />
+                        </div>
+                        <div class="card-body p-3">
+                            <strong class="mb-0 ms-3">{{ image.title }}</strong>
+                            <p>{{ image.description|truncatechars:80 }}</p>
+                        </div>
+                    </div>
+
+                    <!-- Card footer -->
+                    <div class="card-footer border-top text-center p-3">
+                        <div class="d-flex gap-2">
+                            <a href="#" class="btn btn-primary-soft w-100 mb-0">View Images</a>
+                            <a href="#" class="btn btn-light btn-round mb-0" data-bs-toggle="tooltip"
+                                data-bs-placement="top" title="Delete"><i class="bi bi-trash"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Category item END -->
+            </div>
+            <!-- Small image end -->
+
+            {% empty %}
+            <p>No images available.</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Modal Code -->
+<div class="modal fade" id="addImageModal" tabindex="-1" role="dialog" aria-labelledby="addImageModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addImageModalLabel">Add New Image</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" enctype="multipart/form-data" action="{% url 'images' %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="image-title" class="col-form-label"><strong>Image Title:</strong></label>
+                        <input type="text" class="form-control" id="image-title" name="title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="medium-image" class="col-form-label"><strong>Medium Image:</strong></label>
+                        <input type="file" class="form-control" id="medium-image" name="medium_image" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="small-image" class="col-form-label"><strong>Small Image:</strong></label>
+                        <input type="file" class="form-control" id="small-image" name="small_image" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="original-image" class="col-form-label"><strong>Original Image:</strong></label>
+                        <input type="file" class="form-control" id="original-image" name="original_image" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="image-description" class="col-form-label"><strong>Description:</strong></label>
+                        <textarea class="form-control" id="image-description" name="description" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="alt-tag" class="col-form-label"><strong>Alt Tag:</strong></label>
+                        <input type="text" class="form-control" id="alt-tag" name="alt_tag" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="file-name" class="col-form-label"><strong>File Name:</strong></label>
+                        <input type="text" class="form-control" id="file-name" name="file_name" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Add Image</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

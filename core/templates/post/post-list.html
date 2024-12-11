@@ -59,7 +59,7 @@ Post list START -->
                   <i class="bi bi-image"></i>
                 </div>
                 <!-- Content -->
-                <a  href="#" class="ms-0">
+                <a  href="{% url "images" %}" class="ms-0">
                   <h3 class="mb-0">{{featured_image_count}}</h3>
                   <h6 class="mb-0">Images</h6>
                 </a>
@@ -127,7 +127,7 @@ Post list START -->
                         <h6 class="mb-0"><a href="#">{{post.user}}</a></h6>
                       </td>
                       <!-- Table data -->
-                      <td>Dec 08, 2024</td>
+                      <td>{{ post.created_at }}</td>
                       <!-- Table data -->
                       <td>
                         <a href="#" class="badge text-bg-warning mb-2"><i class="fas fa-circle me-2 small fw-bold"></i>{{post.category}}</a>
